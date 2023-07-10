@@ -191,7 +191,7 @@ export const forgotPasswordController = async (req, res) => {
 export const testController = async (req, res) => {
     try {
 
-        res.send("protected routes")
+        res.send("test controller inside auth controller")
     }
     catch (error) {
         console.log(error);
