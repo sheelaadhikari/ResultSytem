@@ -16,29 +16,43 @@ export const testController = async (req, res) => {
 
 export const uploadController = async (req, res) => {
     try {
-        const result = req.files;
-        if (result && result.size > 10000000) {
-            return res
-                .status(400)
-                .send({ error: "Photo is required and should be less than 1 mb" });
-        }
+
+        await resultModel.insertMany(req.body);
 
 
-        const uploads = new resultModel({ ...req.files });
-        if (result) {
-            uploads.result.data = fs.readFileSync(result.path);
-            uploads.result.contentType = result.type;
-        }
-        await uploads.save();
-        res.status(201).send({
-            success: true,
-            message: "uploaded file successfully",
-            uploads,
+
+        console.log("data for server ", req.body);
+
+        // switch (true) {
+        //     case !formno:
+        //         return res.status(400).send({ error: "form number  is Required" });
+
+        //     case !shift:
+        //         return res.status(400).send({ error: "Shift is Required" });
+        //     case !name:
+        //         return res.status(400).send({ error: "name is Required" });
+        //     case !schoolsee:
+        //         return res.status(400).send({ error: "School name  is Required" });
+        //     case !entrancemarks:
+        //         return res.status(400).send({ error: "entrance marks is Required" });
+
+        // }
+
+
+
+
+
+        return res.status(200).send({
+            message: "upload api",
         });
+
 
 
     } catch (error) {
         console.log(error);
+        return res.status(400).send({
+            message: " data is not uploaded"
+        })
     }
 };
 
