@@ -12,7 +12,12 @@ const router = Express.Router()
 
 // test routes
 router.get('/test', requireSignIn, isAdmin, testController,);
-router.get('/upload', requireSignIn, isAdmin, uploadController,);
+
+// upload routes
+router.post('/upload', uploadController,);
+
+// view routes
+
 
 router.get('/view', viewController,);
 

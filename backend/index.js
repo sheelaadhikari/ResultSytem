@@ -5,6 +5,7 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import resultRoutes from './routes/resultRoutes.js';
 import cors from 'cors';
+import multer from 'multer';
 
 
 
