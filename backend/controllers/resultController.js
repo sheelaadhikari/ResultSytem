@@ -49,16 +49,18 @@ export const uploadController = async (req, res) => {
 export const viewController = async (req, res) => {
     try {
         const view = await resultModel.findOne({ formno: req.params._formno });
+        const pass = view.entrancemarks >= 50;
 
         return res.status(200).send({
             success: true,
-            message: "here is result",
+            message: "here is your result",
             view: view,
-
+            pass: pass,
         });
-    }
 
-    catch (error) {
+
+
+    } catch (error) {
         console.log(error);
         res.status(500).send({
             success: false,
