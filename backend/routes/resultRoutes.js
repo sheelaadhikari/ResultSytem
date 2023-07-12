@@ -19,7 +19,7 @@ router.post('/upload', uploadController,);
 // view routes
 
 
-router.get('/view', viewController,);
+router.get('/view/:_formno', viewController,);
 
 
 

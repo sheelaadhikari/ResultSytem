@@ -1,4 +1,3 @@
-
 import resultModel from "../models/resultModel.js";
 import fs from "fs";
 export const testController = async (req, res) => {
@@ -12,14 +11,9 @@ export const testController = async (req, res) => {
 };
 // upload controller
 
-
-
 export const uploadController = async (req, res) => {
     try {
-
         await resultModel.insertMany(req.body);
-
-
 
         console.log("data for server ", req.body);
 
@@ -38,38 +32,33 @@ export const uploadController = async (req, res) => {
 
         // }
 
-
-
-
-
         return res.status(200).send({
             message: "upload api",
+            success: true,
         });
-
-
-
     } catch (error) {
         console.log(error);
         return res.status(400).send({
-            message: " data is not uploaded"
-        })
+            message: " data is not uploaded",
+            success: false,
+        });
     }
 };
 
-
-
-
-
 //view controller
 export const viewController = async (req, res) => {
-
     try {
-        const view = await resultModel.findById(req.params._id).select("result");
-        if (view.result.data) {
-            res.set("Content-type", view.result.contentType);
-            return res.status(200).send(view.result.data);
-        }
-    } catch (error) {
+        const view = await resultModel.findOne({ formno: req.params._formno });
+
+        return res.status(200).send({
+            success: true,
+            message: "here is result",
+            view: view,
+
+        });
+    }
+
+    catch (error) {
         console.log(error);
         res.status(500).send({
             success: false,
@@ -78,4 +67,3 @@ export const viewController = async (req, res) => {
         });
     }
 };
-

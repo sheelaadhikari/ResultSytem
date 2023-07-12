@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Topic from "../components/Topic.js";
 import { Data } from "../components/Data.js";
+import axios from 'axios';
 import * as XLSX from "xlsx";
-
+import { BASEURL } from './../constant';
 const Upload = () => {
     //on change state
     const [excelFile, setExcelFile] = useState(null);
@@ -27,7 +28,7 @@ const Upload = () => {
                     setExcelFile(e.target.result);
                 };
             } else {
-                setExcelFile("please select only excel file type");
+                console.log("please select only excel file type");
                 setExcelFile(null);
             }
         } else {
@@ -36,22 +37,38 @@ const Upload = () => {
     };
 
     // submit the data
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (excelFile !== null) {
-            const workbook = XLSX.read(excelFile, { type: "buffer" });
-            const workSheetName = workbook.SheetNames[0];
-            const workSheet = workbook.Sheets[workSheetName];
-            const data = XLSX.utils.sheet_to_json(workSheet);
-            setExcelData(data);
+        try {
 
 
+            if (excelFile !== null) {
+                const workbook = XLSX.read(excelFile, { type: "buffer" });
+                const workSheetName = workbook.SheetNames[0];
+                const workSheet = workbook.Sheets[workSheetName];
+                const data = XLSX.utils.sheet_to_json(workSheet);
 
-            console.log("data is", data);
-        } else {
-            setExcelData(null);
+                const res = await axios.post(`${BASEURL}/api/v1/result/upload`, data);
+
+                console.log("data given by server to client", res.data);
+
+                if (res.data.success) {
+                    console.log("uploaded the data successfully");
+                }
+                else {
+                    console.log("data is not uploaded")
+
+                }
+                setExcelData(data);
+            }
+            else {
+
+                setExcelData(null);
+            }
         }
-
+        catch (error) {
+            console.log(error);
+        }
 
     };
     console.log("excel data", excelData);
@@ -82,8 +99,6 @@ const Upload = () => {
                 </form>
             </div>
 
-            <br></br>
-            <hr></hr>
 
             <div>
                 <h5> view the excel file</h5>
