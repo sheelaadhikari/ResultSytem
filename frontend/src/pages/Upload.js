@@ -10,6 +10,9 @@ const Upload = () => {
     const [excelFileError, setExcelFileError] = useState(null);
     console.log(excelFile);
 
+
+
+
     // submit data
     const [excelData, setExcelData] = useState(null);
     //handle file
