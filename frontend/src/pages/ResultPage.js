@@ -1,42 +1,32 @@
-import React, { useState } from 'react'
-import Topic from '../components/Topic'
-import { BASEURL } from '../constant';
-import axios from 'axios';
+import React, { useState } from "react";
+import Topic from "../components/Topic";
+import { BASEURL } from "../constant";
+import axios from "axios";
 
 const ResultPage = () => {
-
     const [formno, setFormno] = useState("");
+    const [viewResult, setViewResult] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-
-
             const res = await axios.get(`${BASEURL}/api/v1/result/view/${formno}`);
 
-            setFormno(res.view);
-
-            console.log("Your result is", res)
-
-        }
-        catch (error) {
+            console.log("Your result is", res.data);
+            setViewResult(res.data);
+        } catch (error) {
             console.log("error occured", error);
         }
-    }
-
-
-
+    };
 
     return (
         <>
-
-
             <div>
                 <Topic />
 
-                <div className='col-md-9'>
-                    <div className='mb-3'>
+                <div className="col-md-9">
+                    <div className="mb-3">
                         <input
                             type="text"
                             value={formno}
@@ -47,17 +37,39 @@ const ResultPage = () => {
                             }}
                         />
                         <div className="mb-3">
-                            <button className="btn btn-primary" onClick={handleSubmit}> Check Result</button>
+                            <button className="btn btn-primary" onClick={handleSubmit}>
+                                {" "}
+                                Check Result
+                            </button>
                         </div>
-
                     </div>
 
+
+                    {viewResult !== null ?
+                        <div className="md-9">
+                            <div className="show result"> See Your Result Here</div>
+
+
+                            <div>  Shift:{viewResult.view.shift}</div>
+                            <div> Name:{viewResult.view.name}</div>
+                            <div> School(SEE): {viewResult.view.schoolsee}</div>
+                            <div> Entrance Marks:{viewResult.view.entrancemarks}</div>
+                            <p>
+                                {viewResult.pass === true ? "your are passed" : "your are fail"}
+                            </p>
+
+                        </div>
+
+                        :
+                        <div>
+
+
+                        </div>
+                    }
                 </div>
-
-
             </div>
         </>
-    )
-}
+    );
+};
 
-export default ResultPage
+export default ResultPage;
