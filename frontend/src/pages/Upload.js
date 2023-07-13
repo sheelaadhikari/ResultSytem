@@ -4,6 +4,7 @@ import { Data } from "../components/Data.js";
 import axios from 'axios';
 import * as XLSX from "xlsx";
 import { BASEURL } from './../constant';
+import '../App.css';
 const Upload = () => {
     //on change state
     const [excelFile, setExcelFile] = useState(null);
@@ -75,26 +76,32 @@ const Upload = () => {
 
     };
     console.log("excel data", excelData);
+
+
+
+
     return (
         <div className="container">
             <div className="form">
                 <form className="form-group" autoComplete="off" onSubmit={handleSubmit}>
                     <label>
-                        <h5>
+                        <h5 className="h5">
                             {" "}
                             <Topic />{" "}
                         </h5>
                     </label>
+
                     <input
                         type="file"
-                        className="form-control"
+                        className="form-control choose-file"
                         onChange={handleFile}
                         required
                     />
+
                     {excelFileError && <div>{excelFileError}</div>}
                     <button
                         type="submit"
-                        className="btn btn-success"
+                        className="btn btn-success button-submit"
                         style={{ marginTop: 5 + "px" }}
                     >
                         Submit
@@ -103,8 +110,8 @@ const Upload = () => {
             </div>
 
 
-            <div>
-                <h5> view the excel file</h5>
+            <div className="view-excel">
+                <h3> View The Excel Data</h3>
                 <div className="viewer">
                     {excelData === null && <>no file selected</>}
                     {excelData !== null && (

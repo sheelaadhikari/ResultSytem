@@ -22,9 +22,10 @@ const ResultPage = () => {
 
     return (
         <>
-            <div>
-                <Topic />
-
+            <div className="form">
+                <h5 className="h5">
+                    <Topic />
+                </h5>
                 <div className="col-md-9">
                     <div className="mb-3">
                         <input
@@ -37,7 +38,7 @@ const ResultPage = () => {
                             }}
                         />
                         <div className="mb-3">
-                            <button className="btn btn-primary" onClick={handleSubmit}>
+                            <button className="btn btn-primary check-result" onClick={handleSubmit}>
                                 {" "}
                                 Check Result
                             </button>
