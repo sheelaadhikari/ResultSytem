@@ -115,10 +115,10 @@ const Upload = () => {
                 <div className="viewer">
                     {excelData === null && <>no file selected</>}
                     {excelData !== null && (
-                        <div>
-                            <table>
+                        <div className=" d-felx tr-items">
+                            <table className=" table" style={{ alignItems: "center", textAlign: "center", justifyContent: "center" }}>
                                 <thead>
-                                    <tr>
+                                    <tr >
                                         <th scope="column">FormNo</th>
                                         <th scope="column">Shift</th>
                                         <th scope="column">Name</th>

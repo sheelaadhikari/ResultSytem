@@ -17,6 +17,9 @@ export const uploadController = async (req, res) => {
 
         console.log("data for server ", req.body);
 
+
+
+
         // switch (true) {
         //     case !formno:
         //         return res.status(400).send({ error: "form number  is Required" });
@@ -41,6 +44,7 @@ export const uploadController = async (req, res) => {
         return res.status(400).send({
             message: " data is not uploaded",
             success: false,
+            error: error,
         });
     }
 };
@@ -62,7 +66,7 @@ export const viewController = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).send({
+        res.status(400).send({
             success: false,
             message: "no result found",
             error,

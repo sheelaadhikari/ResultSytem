@@ -38,35 +38,40 @@ const ResultPage = () => {
                             }}
                         />
                         <div className="mb-3">
-                            <button className="btn btn-primary check-result" onClick={handleSubmit}>
+                            <button
+                                className="btn btn-primary check-result"
+                                onClick={handleSubmit}
+                            >
                                 {" "}
                                 Check Result
                             </button>
                         </div>
                     </div>
 
-
-                    {viewResult !== null ?
+                    {viewResult !== null ? (
                         <div className="md-9">
-                            <div className="show result"> See Your Result Here</div>
 
 
-                            <div>  Shift:{viewResult.view.shift}</div>
-                            <div> Name:{viewResult.view.name}</div>
-                            <div> School(SEE): {viewResult.view.schoolsee}</div>
-                            <div> Entrance Marks:{viewResult.view.entrancemarks}</div>
+
+
+                            <br></br>
+                            <br></br>
+                            <div className="title-title"> Your Result is</div>
+                            <div className="title"> Name:{viewResult.view.name}</div>
+                            <div className="title"> Shift:{viewResult.view.shift}</div>
+                            <div className="title"> School(SEE): {viewResult.view.schoolsee}</div>
+                            <div className="title"> Entrance Marks:{viewResult.view.entrancemarks}</div>
+
+                            <br>
+                            </br>
+                            <br></br>
                             <p>
                                 {viewResult.pass === true ? "your are passed" : "your are fail"}
                             </p>
-
                         </div>
-
-                        :
-                        <div>
-
-
-                        </div>
-                    }
+                    ) : (
+                        <div></div>
+                    )}
                 </div>
             </div>
         </>

@@ -2,32 +2,12 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 .form {
   text-align: center;
   justify-content: center;
   align-items: center;
 }
-.button-submit {
-  background-color: rgb(14, 243, 106);
-  border-radius: 5px;
-  color: aliceblue;
-  font-weight: bold;
-}
+
 .button-submit:hover {
   color: #fd0606;
   cursor: pointer;
@@ -38,12 +18,18 @@
   justify-content: center;
   align-items: center;
 }
+.viewer {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
 .form-group {
   border-color: black;
   border-radius: 5px;
 }
 .choose-file {
   background-color: rgb(197, 91, 91) !important;
+  width: 85px;
   margin: 0px 4px 0px 0px;
   padding: 1px 6px;
   border-radius: 7px;
@@ -65,4 +51,48 @@ h5 {
 .check-result:hover {
   color: #fd0505;
   cursor: pointer;
+}
+
+/* register form css */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  flex-direction: column;
+}
+
+.form-wrapper form {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.title-title {
+  font-weight: bold;
+  color: rgb(14, 243, 106);
+}
+.title {
+  color: black;
+  font-weight: bold;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.click {
+  border-radius: 10px !important;
+  padding: 5px 5px;
+  margin-top: 12px;
+  width: 50%;
+  background-color: black;
+  color: white;
+}
+.click:hover {
+  cursor: pointer;
+}
+.mb-3 {
+  margin-top: "12px";
+  padding: 4px 4px;
+}
+input {
+  padding: 8px;
 }

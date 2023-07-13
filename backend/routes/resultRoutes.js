@@ -14,7 +14,7 @@ const router = Express.Router()
 router.get('/test', requireSignIn, isAdmin, testController,);
 
 // upload routes
-router.post('/upload', uploadController,);
+router.post('/upload', requireSignIn, isAdmin, uploadController,);
 
 // view routes
 
