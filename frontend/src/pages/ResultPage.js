@@ -56,22 +56,21 @@ const ResultPage = () => {
 
                             <br></br>
                             <br></br>
-                            <div className="title-title"> Your Result is</div>
-                            <div className="title"> Name:{viewResult.view.name}</div>
-                            <div className="title"> Shift:{viewResult.view.shift}</div>
-                            <div className="title"> School(SEE): {viewResult.view.schoolsee}</div>
-                            <div className="title"> Entrance Marks:{viewResult.view.entrancemarks}</div>
+
+                            <div className="title">     {viewResult.view.message}</div>
 
                             <br>
                             </br>
                             <br></br>
-                            <p>
-                                {viewResult.pass === true ? "your are passed" : "your are fail"}
-                            </p>
+
                         </div>
                     ) : (
                         <div></div>
                     )}
+
+
+
+
                 </div>
             </div>
         </>

@@ -34,7 +34,9 @@ const HomePage = () => {
                 axios.defaults.headers.common["Authorization"] = res.data.token;
                 navigate(location.state || "/Upload");
             } else {
+
                 console.log(" uset not found", res.data.message);
+
             }
         } catch (error) {
             console.log(error);

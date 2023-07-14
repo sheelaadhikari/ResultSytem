@@ -70,14 +70,15 @@ h5 {
 
 .title-title {
   font-weight: bold;
-  color: rgb(14, 243, 106);
+  color: black;
+  font-size: large;
 }
 .title {
   color: black;
   font-weight: bold;
-  font-size: large;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
 .click {
   border-radius: 10px !important;
   padding: 5px 5px;

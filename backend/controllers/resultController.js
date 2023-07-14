@@ -20,6 +20,8 @@ export const uploadController = async (req, res) => {
 
 
 
+
+
         // switch (true) {
         //     case !formno:
         //         return res.status(400).send({ error: "form number  is Required" });
@@ -54,6 +56,8 @@ export const viewController = async (req, res) => {
     try {
         const view = await resultModel.findOne({ formno: req.params._formno });
         const pass = view.entrancemarks >= 50;
+        console.log(" the resulkasdfjlakdfjdlfja", view)
+
 
         return res.status(200).send({
             success: true,

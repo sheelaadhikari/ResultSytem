@@ -20,11 +20,15 @@ const Upload = () => {
     const fileType = [
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     ];
+
+
     const handleFile = (e) => {
         let selectedFile = e.target.files[0];
         if (selectedFile) {
             if (selectedFile && fileType.includes(selectedFile.type)) {
-                console.log(selectedFile.type);
+                console.log(" the file should be of this type", selectedFile.type);
+
+
                 let reader = new FileReader();
                 reader.readAsArrayBuffer(selectedFile);
                 reader.onload = (e) => {
@@ -115,7 +119,7 @@ const Upload = () => {
                 <div className="viewer">
                     {excelData === null && <>no file selected</>}
                     {excelData !== null && (
-                        <div className=" d-felx tr-items">
+                        <div className=" d-felx">
                             <table className=" table" style={{ alignItems: "center", textAlign: "center", justifyContent: "center" }}>
                                 <thead>
                                     <tr >
@@ -124,6 +128,9 @@ const Upload = () => {
                                         <th scope="column">Name</th>
                                         <th scope="column">SchoolSEE</th>
                                         <th scope="column">EntranceMarks</th>
+                                        <th scope="column">Message</th>
+
+
                                     </tr>
                                 </thead>
                                 <tbody>
